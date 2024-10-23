@@ -1,0 +1,352 @@
+<html>
+ <head>
+  <title>
+   Reddit Clone
+  </title>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+ </head>
+ <body class="bg-gray-100">
+  <div class="max-w-4xl mx-auto bg-white shadow-md">
+   <!-- Header -->
+   <div class="flex items-center justify-between p-4 border-b">
+    <div class="flex items-center space-x-2">
+     <img alt="Reddit Logo" class="w-10 h-10" height="40" src="https://storage.googleapis.com/a1aa/image/uajRHc7i7DpYNNyZhT4gTAsXKRLDFCOLZreJHefPr2CQCqRnA.jpg" width="40"/>
+     <span class="text-xl font-bold">
+      reddit
+     </span>
+    </div>
+    <div class="flex items-center space-x-4">
+     <input class="px-4 py-2 border rounded-full w-40 sm:w-80" placeholder="Search Reddit" type="text"/>
+     <i class="fas fa-bell text-xl">
+     </i>
+     <i class="fas fa-comment-dots text-xl">
+     </i>
+     <i class="fas fa-user-circle text-xl cursor-pointer" onclick="document.getElementById('loginModal').classList.remove('hidden')">
+     </i>
+    </div>
+   </div>
+   <!-- Create Post -->
+   <div class="p-4 border-b">
+    <button class="w-full px-4 py-2 text-left border rounded-full" onclick="document.getElementById('createPostModal').classList.remove('hidden')">
+     Create Post
+    </button>
+   </div>
+   <!-- Stories -->
+   <div class="flex space-x-4 p-4 border-b overflow-x-auto">
+    <div class="flex flex-col items-center">
+     <img alt="Story 1" class="w-12 h-12 rounded-full" height="50" src="https://storage.googleapis.com/a1aa/image/iwuh6uYNkk7FFxnKSUaXOKj72J9JFUn9vXm1AVUzXiOTQN6E.jpg" width="50"/>
+     <span class="text-xs text-center">
+      a little bit of everything
+     </span>
+    </div>
+    <div class="flex flex-col items-center">
+     <img alt="Story 2" class="w-12 h-12 rounded-full" height="50" src="https://storage.googleapis.com/a1aa/image/TIYe2wxBGNTmYyYr5FAvkttsXrz9TggqQLRO4jHNf4nLB1oTA.jpg" width="50"/>
+     <span class="text-xs text-center">
+      this anniversary ends with
+     </span>
+    </div>
+    <div class="flex flex-col items-center">
+     <img alt="Story 3" class="w-12 h-12 rounded-full" height="50" src="https://storage.googleapis.com/a1aa/image/k9qg5SWy9b6rFlTSXwPLY43TV4nA9Za8icHqaLn7engkga0JA.jpg" width="50"/>
+     <span class="text-xs text-center">
+      hosties, Bob and Awkward!
+     </span>
+    </div>
+   </div>
+   <!-- Tabs -->
+   <div class="flex justify-between p-4 border-b">
+    <div class="flex space-x-4">
+     <button class="px-4 py-2 text-blue-500 border-b-2 border-blue-500">
+      Best
+     </button>
+     <button class="px-4 py-2">
+      Hot
+     </button>
+     <button class="px-4 py-2">
+      New
+     </button>
+     <button class="px-4 py-2">
+      Top
+     </button>
+    </div>
+    <i class="fas fa-ellipsis-h">
+    </i>
+   </div>
+   <!-- Posts -->
+   <div class="p-4 space-y-4">
+    <div class="flex items-start space-x-4">
+     <div class="flex flex-col items-center">
+      <i class="fas fa-arrow-up cursor-pointer" onclick="vote(this, 1)">
+      </i>
+      <span>
+       1
+      </span>
+      <i class="fas fa-arrow-down cursor-pointer" onclick="vote(this, -1)">
+      </i>
+     </div>
+     <div>
+      <div class="flex items-center space-x-2">
+       <span class="font-bold">
+        How to track conversion pathways from app stores?
+       </span>
+       <span class="text-xs text-gray-500">
+        Question
+       </span>
+      </div>
+      <div class="text-sm text-gray-500">
+       r/marketing • Posted by u/Forsaken-Bedroom-720 6 minutes ago
+      </div>
+      <img alt="Post Image" class="mt-2 w-full h-64 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/qwmWUkutAR7NBtNzohLeoLhfifbDo3AYK6gwNjAdG6EJYqRnA.jpg" width="600"/>
+      <div class="flex items-center space-x-4 text-xs text-gray-500 mt-2">
+       <span class="cursor-pointer" onclick="document.getElementById('commentModal').classList.remove('hidden')">
+        <i class="fas fa-comment">
+        </i>
+        1
+       </span>
+      </div>
+     </div>
+    </div>
+    <div class="flex items-start space-x-4">
+     <div class="flex flex-col items-center">
+      <i class="fas fa-arrow-up cursor-pointer" onclick="vote(this, 1)">
+      </i>
+      <span>
+       1
+      </span>
+      <i class="fas fa-arrow-down cursor-pointer" onclick="vote(this, -1)">
+      </i>
+     </div>
+     <div>
+      <div class="flex items-center space-x-2">
+       <span class="font-bold">
+        Qelbree and insomnia. Would it help to take pills earlier?
+       </span>
+       <span class="text-xs text-blue-500">
+        Questions/Advice/Support
+       </span>
+      </div>
+      <div class="text-sm text-gray-500">
+       r/ADHD • Posted by u/Complex478260 6 minutes ago
+      </div>
+      <img alt="Post Image" class="mt-2 w-full h-64 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/qwmWUkutAR7NBtNzohLeoLhfifbDo3AYK6gwNjAdG6EJYqRnA.jpg" width="600"/>
+      <div class="flex items-center space-x-4 text-xs text-gray-500 mt-2">
+       <span class="cursor-pointer" onclick="document.getElementById('commentModal').classList.remove('hidden')">
+        <i class="fas fa-comment">
+        </i>
+        1
+       </span>
+      </div>
+     </div>
+    </div>
+    <div class="flex items-start space-x-4">
+     <div class="flex flex-col items-center">
+      <i class="fas fa-arrow-up cursor-pointer" onclick="vote(this, 1)">
+      </i>
+      <span>
+       1
+      </span>
+      <i class="fas fa-arrow-down cursor-pointer" onclick="vote(this, -1)">
+      </i>
+     </div>
+     <div>
+      <div class="flex items-center space-x-2">
+       <span class="font-bold">
+        How many hours did you guys spend walking through Cuphead
+       </span>
+      </div>
+      <div class="text-sm text-gray-500">
+       r/gaming • Posted by u/DrPoison_7 minutes ago
+      </div>
+      <img alt="Post Image" class="mt-2 w-full h-64 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/qwmWUkutAR7NBtNzohLeoLhfifbDo3AYK6gwNjAdG6EJYqRnA.jpg" width="600"/>
+      <div class="flex items-center space-x-4 text-xs text-gray-500 mt-2">
+       <span class="cursor-pointer" onclick="document.getElementById('commentModal').classList.remove('hidden')">
+        <i class="fas fa-comment">
+        </i>
+        1
+       </span>
+      </div>
+     </div>
+    </div>
+    <div class="flex items-start space-x-4">
+     <div class="flex flex-col items-center">
+      <i class="fas fa-arrow-up cursor-pointer" onclick="vote(this, 1)">
+      </i>
+      <span>
+       0
+      </span>
+      <i class="fas fa-arrow-down cursor-pointer" onclick="vote(this, -1)">
+      </i>
+     </div>
+     <div>
+      <div class="flex items-center space-x-2">
+       <span class="font-bold">
+        Did they restrict your ad account again? We have agency ad accounts available for $500.
+       </span>
+       <span class="text-xs text-gray-500">
+        Promoted
+       </span>
+      </div>
+      <div class="text-sm text-gray-500">
+       u/gabaadm
+      </div>
+      <img alt="Post Image" class="mt-2 w-full h-64 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/qwmWUkutAR7NBtNzohLeoLhfifbDo3AYK6gwNjAdG6EJYqRnA.jpg" width="600"/>
+      <div class="flex items-center space-x-4 text-xs text-gray-500 mt-2">
+       <span class="cursor-pointer" onclick="document.getElementById('commentModal').classList.remove('hidden')">
+        <i class="fas fa-comment">
+        </i>
+        0
+       </span>
+      </div>
+      <div class="text-xs text-blue-500">
+       https://www.getadm.com
+      </div>
+     </div>
+    </div>
+    <div class="flex items-start space-x-4">
+     <div class="flex flex-col items-center">
+      <i class="fas fa-arrow-up cursor-pointer" onclick="vote(this, 1)">
+      </i>
+      <span>
+       0
+      </span>
+      <i class="fas fa-arrow-down cursor-pointer" onclick="vote(this, -1)">
+      </i>
+     </div>
+     <div>
+      <div class="flex items-center space-x-2">
+       <span class="font-bold">
+        This means a lot. First Zombies I went for easter eggs in
+       </span>
+       <span class="text-xs text-red-500">
+        Video
+       </span>
+      </div>
+      <img alt="Post Image" class="mt-2 w-full h-64 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/qwmWUkutAR7NBtNzohLeoLhfifbDo3AYK6gwNjAdG6EJYqRnA.jpg" width="600"/>
+      <div class="flex items-center space-x-4 text-xs text-gray-500 mt-2">
+       <span class="cursor-pointer" onclick="document.getElementById('commentModal').classList.remove('hidden')">
+        <i class="fas fa-comment">
+        </i>
+        0
+       </span>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- Create Post Modal -->
+  <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden" id="createPostModal">
+   <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 sm:w-1/2">
+    <h2 class="text-xl font-bold mb-4">
+     Create a Post
+    </h2>
+    <form>
+     <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="postTitle">
+       Title
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="postTitle" placeholder="Title" type="text"/>
+     </div>
+     <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="postContent">
+       Content
+      </label>
+      <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="postContent" placeholder="Content" rows="5">
+      </textarea>
+     </div>
+     <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="postImage">
+       Image
+      </label>
+      <div class="flex items-center">
+       <label class="w-full flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue-500 hover:text-white">
+        <i class="fas fa-cloud-upload-alt fa-3x">
+        </i>
+        <span class="mt-2 text-base leading-normal">
+         Select an image
+        </span>
+        <input class="hidden" id="postImage" type="file"/>
+       </label>
+      </div>
+     </div>
+     <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="postVideo">
+       Video
+      </label>
+      <div class="flex items-center">
+       <label class="w-full flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue-500 hover:text-white">
+        <i class="fas fa-cloud-upload-alt fa-3x">
+        </i>
+        <span class="mt-2 text-base leading-normal">
+         Select a video
+        </span>
+        <input class="hidden" id="postVideo" type="file"/>
+       </label>
+      </div>
+     </div>
+     <div class="flex items-center justify-between">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+       Post
+      </button>
+      <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onclick="document.getElementById('createPostModal').classList.add('hidden')" type="button">
+       Cancel
+      </button>
+     </div>
+    </form>
+   </div>
+  </div>
+  <!-- Login Modal -->
+  <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden" id="loginModal">
+   <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 sm:w-1/3">
+    <h2 class="text-xl font-bold mb-4">
+     Login
+    </h2>
+    <form>
+     <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="loginEmail">
+       Email
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="loginEmail" placeholder="Email" type="email"/>
+     </div>
+     <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="loginPassword">
+       Password
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="loginPassword" placeholder="Password" type="password"/>
+     </div>
+     <div class="flex items-center justify-between">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+       Login
+      </button>
+      <button class="text-blue-500 hover:text-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onclick="document.getElementById('registerModal').classList.remove('hidden'); document.getElementById('loginModal').classList.add('hidden')" type="button">
+       Register
+      </button>
+     </div>
+    </form>
+   </div>
+  </div>
+  <!-- Register Modal -->
+  <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden" id="registerModal">
+   <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 sm:w-1/3">
+    <h2 class="text-xl font-bold mb-4">
+     Register
+    </h2>
+    <form>
+     <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="registerEmail">
+       Email
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="registerEmail" placeholder="Email" type="email"/>
+     </div>
+     <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="registerUsername">
+       Username
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="registerUsername" placeholder="Username" type="text"/>
+     </div>
+     <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="registerPassword">
+       Password
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="registerPassword" placeholder="Password
